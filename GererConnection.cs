@@ -52,7 +52,7 @@ namespace TP_5
             using(connection=new SqlConnection(conString))
             {
                 connection.Open();
-                new SqlCommand($"delete condidat where codeCand=@CodeCand") { 
+                new SqlCommand($"delete condidat where codeCand=@CodeCand",connection) { 
                     Parameters = 
                     {
                         new SqlParameter("@CodeCand",CodeCand) 

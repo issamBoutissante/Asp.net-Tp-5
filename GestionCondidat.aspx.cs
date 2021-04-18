@@ -12,19 +12,21 @@ namespace TP_5
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            GererConnection.RemplirGrid(GridView1);
+            if (!IsPostBack)
+            {
+                 GererConnection.RemplirGrid(GridView1);
+            }
         }
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            //GridView1.EditIndex = e.NewEditIndex;
-            //GererConnection.RemplirGrid(GridView1);
-            Response.Redirect("Login.aspx");
+            GridView1.EditIndex = e.NewEditIndex;
+            GererConnection.RemplirGrid(GridView1);
         }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            GererConnection.SupprimerCondidat(((TextBox)GridView1.Rows[e.RowIndex].FindControl("codeCand")).Text);
+            GererConnection.SupprimerCondidat(((Label)GridView1.Rows[e.RowIndex].FindControl("codeCand")).Text);
             GererConnection.RemplirGrid(GridView1);
         }
 
