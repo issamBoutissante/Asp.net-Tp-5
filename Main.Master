@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="TP_5.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            margin-bottom: 111px;
+            height: 698px;
+        }
+        .auto-style2 {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style2">
+                        <asp:Button ID="AcueilPage" runat="server" Text="Acueil Page" Width="200px" OnClick="AcueilPage_Click" />
+                        <asp:Button ID="Administrateur" runat="server" Text="Administrateur" Width="200px" OnClick="Administrateur_Click" />
+                        <asp:Button ID="Button1" runat="server" Text="Gestion Condidat Page" Width="200px" OnClick="Button1_Click" />
+                        <asp:Button ID="AjouterCondidat" runat="server" Text="Ajout Condidat Page" Width="200px" OnClick="AjouterCondidat_Click" />
+                    </td>
+                    <td>
+                          <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
