@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -80,12 +81,18 @@ namespace TP_5
         }
         public static void Serializer()
         {
-
             connection = new SqlConnection(conString);
             DataSet dataSet=new DataSet();
             new SqlDataAdapter("select * from condidat", connection).Fill(dataSet,"condidat");
             dataSet.Tables["condidat"].WriteXml(@"C:\Users\ISSAM\Desktop\Web Cote Serveur\TP\TP 5\condidat.xml");
-           
+            dataSet.WriteXml(@"C:\Users\ISSAM\Desktop\Web Cote Serveur\TP\TP 5\DBStagiaire.xml");
+        }
+        public static void SerializerSchema()
+        {
+            connection = new SqlConnection(conString);
+            DataSet dataSet = new DataSet();
+            new SqlDataAdapter("select * from condidat", connection).Fill(dataSet, "condidat");
+            dataSet.Tables["condidat"].WriteXmlSchema(@"C:\Users\ISSAM\Desktop\Web Cote Serveur\TP\TP 5\condidatSchema.xml");
         }
     }
 }

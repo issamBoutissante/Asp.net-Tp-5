@@ -16,21 +16,28 @@
         .auto-style2 {
             width: 200px;
         }
+        .btn{
+            margin-bottom:20px;
+            background-color:dodgerblue;
+            color:white;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <table class="auto-style1">
+            <table border="1" class="auto-style1">
                 <tr>
                     <td class="auto-style2">
-                        <asp:Button ID="AcueilPage" runat="server" Text="Acueil Page" Width="200px" OnClick="AcueilPage_Click" />
-                        <asp:Button ID="Administrateur" runat="server" Text="Administrateur" Width="200px" OnClick="Administrateur_Click" />
-                        <asp:Button ID="Button1" runat="server" Text="Gestion Condidat Page" Width="200px" OnClick="Button1_Click" />
-                        <asp:Button ID="AjouterCondidat" runat="server" Text="Ajout Condidat Page" Width="200px" OnClick="AjouterCondidat_Click" />
+                        <asp:Button ID="AcueilPage" CssClass="btn" runat="server" Text="Acueil Page" Width="200px" OnClick="AcueilPage_Click" />
+                        <asp:Button ID="Administrateur" CssClass="btn" runat="server" Text="Administrateur" Width="200px" OnClick="Administrateur_Click" />
+                        <asp:Button ID="Button1" runat="server" CssClass="btn" Text="Gestion Condidat Page" Width="200px" OnClick="Button1_Click" />
+                        <asp:Button ID="AjouterCondidat" runat="server" CssClass="btn" Text="Ajout Condidat Page" Width="200px" OnClick="AjouterCondidat_Click" />
                     </td>
-                    <td>
+                    <td style="background-color:cornflowerblue">
+                        <div style="width:100%;height:100%;display:flex;justify-content:center;align-items:center;">
                           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                        </div>
                     </td>
                 </tr>
             </table>

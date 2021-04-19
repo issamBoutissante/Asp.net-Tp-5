@@ -47,7 +47,7 @@ namespace TP_5
                         new SqlParameter("@nmSession",NomSociete.Text),
                     }
                 }.ExecuteNonQuery();
-                ErrorMessage.Text = "Ajout Effectue";
+                ErrorMessage.Text = "";
             }
             GererConnection.RemplirGrid(GridView1);
         }
@@ -55,6 +55,11 @@ namespace TP_5
         protected void serializer_Click(object sender, EventArgs e)
         {
             GererConnection.Serializer();
+        }
+
+        protected void serializerSchema_Click(object sender, EventArgs e)
+        {
+            GererConnection.SerializerSchema();
         }
     }
 }
