@@ -9,7 +9,7 @@
                     CodeCand
                 </HeaderTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="codeCand" runat="server" Text='<%# Eval("codeCand") %>'></asp:Label>
+                    <asp:Label ID="CodeCand" runat="server" Text='<%# Eval("codeCand") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField>

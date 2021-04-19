@@ -8,8 +8,8 @@ namespace TP_5
 {
     public class GererConnection
     {
-        static string conString = ConfigurationManager.ConnectionStrings["monConnection"].ConnectionString;
-        static SqlConnection connection;
+         public static string conString = ConfigurationManager.ConnectionStrings["monConnection"].ConnectionString;
+         public static SqlConnection connection;
 
         public static bool isEtulisateurExiste(string nom, string motPass)
         {
@@ -65,7 +65,7 @@ namespace TP_5
             using (connection = new SqlConnection(conString))
             {
                 connection.Open();
-                new SqlCommand($"update condidat set NomCand=@NomCand,DateInscription=@DateIns,NumSession=@NumSession,NomSociete=@NomSociete where codeCand=@CodeCand")
+                new SqlCommand($"update condidat set NomCand=@NomCand,DateInscription=@DateIns,NumSession=@NumSession,NomSociete=@NomSociete where codeCand=@CodeCand",connection)
                 {
                     Parameters =
                     {
@@ -77,6 +77,15 @@ namespace TP_5
                     }
                 }.ExecuteNonQuery();
             }
+        }
+        public static void Serializer()
+        {
+
+            connection = new SqlConnection(conString);
+            DataSet dataSet=new DataSet();
+            new SqlDataAdapter("select * from condidat", connection).Fill(dataSet,"condidat");
+            dataSet.Tables["condidat"].WriteXml(@"C:\Users\ISSAM\Desktop\Web Cote Serveur\TP\TP 5\condidat.xml");
+           
         }
     }
 }

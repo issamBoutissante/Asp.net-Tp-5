@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace TP_5
@@ -14,6 +9,7 @@ namespace TP_5
         {
             if (!IsPostBack)
             {
+                GererConnection.isDejaAuthentifier(this);
                  GererConnection.RemplirGrid(GridView1);
             }
         }
@@ -26,7 +22,7 @@ namespace TP_5
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            GererConnection.SupprimerCondidat(((Label)GridView1.Rows[e.RowIndex].FindControl("codeCand")).Text);
+            GererConnection.SupprimerCondidat(((Label)GridView1.Rows[e.RowIndex].FindControl("CodeCand")).Text);
             GererConnection.RemplirGrid(GridView1);
         }
 
@@ -41,12 +37,13 @@ namespace TP_5
             GererConnection.ModifierCondidat(
                 new 
             {
+                CodeCand= ((Label)GridView1.Rows[e.RowIndex].FindControl("CodeCand")).Text,
                 NomCand=((TextBox)GridView1.Rows[e.RowIndex].FindControl("NomCand")).Text,
-                CodeCond= ((TextBox)GridView1.Rows[e.RowIndex].FindControl("CodeCand")).Text,
-                DateIns= ((TextBox)GridView1.Rows[e.RowIndex].FindControl("DateInstitition")).Text,
+                DateIns= ((TextBox)GridView1.Rows[e.RowIndex].FindControl("DateInscription")).Text,
                 NumSession= ((TextBox)GridView1.Rows[e.RowIndex].FindControl("NumSession")).Text,
                 NomSociete= ((TextBox)GridView1.Rows[e.RowIndex].FindControl("NomSociete")).Text
             });
+            GridView1.EditIndex = -1;
             GererConnection.RemplirGrid(GridView1);
         }
     }
